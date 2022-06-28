@@ -38,7 +38,7 @@ public class UserDaoImp implements UserDao {
                 .createQuery("SELECT o.user from Car o WHERE o.model=:model and o.series=:series", User.class)
                 .setParameter("model", model)
                 .setParameter("series", series)
-                .getResultList().get(0);
+                .setMaxResults(1).getSingleResult();
         return result;
 
 
